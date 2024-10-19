@@ -58,17 +58,6 @@ sudo make install
 # Change to the original directory
 cd ..
 
-# For Docker
-git clone https://github.com/AlbatrossC/ubuntu-testing.git
-cd ubuntu-testing
 
-# Install python3-pip and scrot
-sudo apt install -y python3-pip scrot
-
-# Install Flask and pyvirtualdisplay
-pip3 install flask pyvirtualdisplay 
-
-# Run the Python application
-python3 app.py
 
 echo "All commands executed successfully."
