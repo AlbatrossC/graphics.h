@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="graphics.h installation, Ubuntu graphics.h, Computer Graphics development">
+    <title>Graphics.h Installation Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f6f9fc 0%, #eef2f7 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #334155;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            padding: 48px;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #4f46e5, #6366f1, #818cf8);
+        }
+
+        h1 {
+            color: #1e293b;
+            font-size: 36px;
+            margin-bottom: 24px;
+            text-align: center;
+            letter-spacing: -0.5px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4f46e5, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            color: #64748b;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .instruction {
+            color: #64748b;
+            margin-bottom: 32px;
+            line-height: 1.7;
+            font-size: 16px;
+            text-align: center;
+            background: #f8fafc;
+            padding: 20px 24px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .instruction::before {
+            content: '💻';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 12px;
+            font-size: 20px;
+        }
+
+        .time-note {
+            color: #6366f1;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 8px;
+            padding: 6px 12px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 20px;
+        }
+
+        .code-container {
+            position: relative;
+            margin: 35px 0;
+            transition: all 0.3s ease;
+        }
+
+        .code-container:hover {
+            transform: translateY(-2px);
+        }
+
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 32px;
+            border-radius: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 15px;
+            line-height: 1.6;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .copy-btn {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+        }
+
+        .copy-btn:hover {
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
+            background: linear-gradient(135deg, #4338ca, #4f46e5);
+        }
+
+        .success-message {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 16px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+            font-size: 16px;
+        }
+
+        .success-message.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 32px 24px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .description {
+                font-size: 16px;
+            }
+
+            .code-block {
+                font-size: 14px;
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Graphics.h Installation</h1>
+        
+        <div class="description">
+            Quick and easy installation guide for the graphics.h library on Ubuntu systems.
+            Set up your graphics development environment with a single command.
+        </div>
+
+        <div class="instruction">
+            Copy and paste the following command in your terminal.
+            <br>
+            <span class="time-note">Installation time: 5-15 minutes</span>
+        </div>
+
+        <div class="code-container">
+            <div class="code-block" id="code">sudo apt update && sudo apt install git -y && \
+git clone https://github.com/AlbatrossC/graphics.h.git && \
+cd graphics.h && \
+chmod +x install.sh && \
+./install.sh</div>
+            <button class="copy-btn" onclick="copyCode()">Copy Command</button>
+        </div>
+
+        <div class="success-message" id="success">✓ Command copied to clipboard</div>
+    </div>
+
+    <script>
+        function copyCode() {
+            const codeBlock = document.getElementById('code');
+            const successMessage = document.getElementById('success');
+            
+            navigator.clipboard.writeText(codeBlock.textContent.trim())
+                .then(() => {
+                    successMessage.classList.add('show');
+                    setTimeout(() => {
+                        successMessage.classList.remove('show');
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+        }
+    </script>
+</body>
+</html>
