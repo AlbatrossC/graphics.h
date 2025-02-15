@@ -15,7 +15,7 @@ sudo apt install -y libsdl-image1.2 libsdl-image1.2-dev guile-2.0 guile-2.0-dev 
     libfreetype6 libaa1 libaa1-dev libslang2-dev libasound2 libasound2-dev
 
 # Extract and install libgraph (from local file)
-if [ -f "libgraph-1.0.2.tar.gz" ]; then
+if [ -f "$PWD/libgraph-1.0.2.tar.gz" ]; then
     tar -xzf libgraph-1.0.2.tar.gz
     cd libgraph-1.0.2
 
@@ -34,10 +34,13 @@ else
 fi
 
 # Install conio.h
-if [ -f "conio.h" ]; then
-    sudo cp conio.h /usr/include/
+CONIO_PATH="$PWD/conio.h"
+if [ -f "$CONIO_PATH" ]; then
+    echo -e "\e[34m[ℹ] Found conio.h at: $CONIO_PATH\e[0m"
+    sudo cp "$CONIO_PATH" /usr/include/
+    echo -e "\e[32m[✔] conio.h installed successfully!\e[0m"
 else
-    echo -e "\e[31m[✖] conio.h not found. Skipping installation.\e[0m"
+    echo -e "\e[31m[✖] conio.h not found at $PWD. Skipping installation.\e[0m"
 fi
 
 # Completion message
